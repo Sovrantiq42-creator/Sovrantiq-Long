@@ -13,19 +13,19 @@ pexels_key = os.environ.get('PEXELS_API_KEY')
 chat_id = os.environ.get('CHAT_ID')
 telegram_token = os.environ.get('TELEGRAM_BOT_TOKEN')
 
-# 👇 USA Channel Name 👇
-channel_name = "Fare Empire®" 
+# 👇 NAYA Channel Name 👇
+channel_name = "Sovrantiq®" 
 
 print(f"DEBUG: Processing {len(scenes_data)} scenes async...")
 
 # --- SMART DYNAMIC FALLBACK KEYWORDS ---
-# Fare Empire ke liye logistical/mechanical visual keywords (No sunny beaches)
-fallback_env = os.environ.get('FALLBACK_KEYWORDS', 'airplane taking off, airport terminal blur, luggage conveyor belt, hotel lobby, credit card swipe')
+# Sovrantiq ke liye symbolic/metaphorical visual keywords (No humans, strictly moody)
+fallback_env = os.environ.get('FALLBACK_KEYWORDS', 'storm clouds time lapse, ink dropping in water, chess board shadows, ancient stone statue, spider web dark')
 FALLBACK_KEYWORDS = [kw.strip() for kw in fallback_env.split(',')]
 
 TEMP_DIR = "/dev/shm" if os.path.exists("/dev/shm") else os.getcwd()
 
-# 👇 NAYA FLAG: Pexels API block hone par track karne ke liye 👇
+# 👇 FLAG: Pexels API block hone par track karne ke liye 👇
 pexels_rate_limit_hit = False
 
 async def fetch_pexels_video(session, keyword):
@@ -234,8 +234,8 @@ async def main_pipeline():
         run_id = os.environ.get('GITHUB_RUN_ID', str(int(time.time())))
         tag_name = f"vid-{run_id}"
         
-        # 👇 Repo name updated as per screenshot[cite: 3] 👇
-        repo_name = os.environ.get('GITHUB_REPOSITORY', "FareEmpire40-svg/Fare-Empire-Long") 
+        # 👇 Repo name updated for Sovrantiq based on your screenshot 👇
+        repo_name = os.environ.get('GITHUB_REPOSITORY', "Sovrantiq42-creator/Sovrantiq-Long") 
         
         try:
             cmd = ['gh', 'release', 'create', tag_name, final_video, '--repo', repo_name, '--notes', 'Automated Video Render']
